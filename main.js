@@ -1,10 +1,10 @@
 'use strict'
 
-const { app, BroserWindon, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
-	const win = new BroserWindon ({
+	const win = new BrowserWindow ({
 		width: 800,
 		height: 600,
 		webPreferences: {
@@ -20,7 +20,7 @@ app.whenReady().then(() => {
 	createWindow()
 
 	app.on('activate', () => {
-		if (BroserWindon.getAllWindows().length === 0) createWindow()
+		if (BrowserWindow.getAllWindows().length === 0) createWindow()
 	})
 })
 
